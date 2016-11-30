@@ -39,6 +39,10 @@ h2 {
 	font-size: 2em;
 }
 
+.role-image {
+	width: 60%;
+	margin: auto;
+}
 
 .role-circle {
 	width: 100px;
@@ -52,4 +56,3 @@ h2 {
 	font-size: 1.5em;
 	padding-top: 5px;
 }
-
