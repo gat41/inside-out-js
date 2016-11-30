@@ -1,37 +1,65 @@
-//1. click on circle and a random emotion appears
-//2. certain user event on an emotion and let it react accordingly
-// - hover over Joy - change color or let it shake or omsething 
-// - click on sadness - let it turn blue and cry
-// - click on disgust - green
-// - click on anger - smoke comes out :D
-// - hover over fear - let it shake?
+// get a random integer
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
-function createEmotion(){
+// create a button
+function createClearBtn(){
+
+  //create a button element
+  clearBtn = document.createElement('button');
   
-  //allow create emotion to take in an argument?
+  // [STUDENT] Find out what setAttribute does.
+  clearBtn.setAttribute('id', 'clear');
+  
+  // [STUDENT] Find out what innerHTML does.
+  clearBtn.innerHTML = 'Clear';
 
+  // configure the button's alignment so that it is at the center 
+  clearBtn.style.display = 'table';
+  clearBtn.style.margin = '20px auto';
 
-  // cookieImg = document.createElement('img');
-  // cookieImg.setAttribute('src', 'img/cookie-dough.jpg');
-  // size = '30px';
-  // cookieImg.style.width = size;
-  // cookieImg.style.height = size;
-  // cookieImg.style.margin = '3px';
-  // cookieCount += 1;
-  // return cookieImg;
+	// add an event listener to this button  
+  clearBtn.addEventListener('click', clearEmotion);
+
+  return clearBtn;
+}
+
+// clear the text in emo-circle
+function clearEmotion(){
+	// get the p tag with id 'emotion'
+  emotion = document.getElementById('emotion');
+  emotion.innerHTML = "";
+
 }
 
 function addEmotion(){
 
-  emotionCircle = document.getElementById('emo-circle');
+	// if there is no clear button, create it
+  if(!document.getElementById('clear')){
+	  
+	  // create a clear button
+	  clearBtn = createClearBtn();
 
+	  //insert the button after 'emo-circle'
+	  //Reference: https://plainjs.com/javascript/manipulation/insert-an-element-after-or-before-another-32/
+  	emotionCircle = document.getElementById('emo-circle');
+  	emotionCircle.parentNode.insertBefore(clearBtn, emotionCircle.nextSibling);    
 
-  emotionCircle.innerHTML = 'dsaf'
-  //Your code goes here  
+  }
+  
+  // get the p tag with id 'emotion'
+  emotion = document.getElementById('emotion');
+  
+  emoArray = ['Joy', 'Sadness', 'Anger', 'Fear', 'Disgust'];
+  arrayLength = emoArray.length;
+  rand = getRandomInt(0, arrayLength);
+  console.log(rand);
+  emotion.innerHTML = emoArray[rand];
 
-
-
-  //remember to read up on appendChild (what Tristan mentioned) and guide the students accordingly
+  // remember to read up on appendChild (what Tristan mentioned) and guide the students accordingly
 }
 
 
