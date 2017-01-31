@@ -1,11 +1,11 @@
-// get a random integer
+// get a random integer (this is used to return a random element from an array)
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// create a button
+// create a clear button. This function will be called in addEmotion()
 function createClearBtn(){
 
   //create a button element
@@ -13,8 +13,6 @@ function createClearBtn(){
   
   // [STUDENT] Find out what setAttribute does.
   clearBtn.setAttribute('id', 'clear');
-  
-  // [STUDENT] Find out what innerHTML does.
   clearBtn.innerHTML = 'Clear';
 
   // configure the button's alignment so that it is at the center 
@@ -50,18 +48,19 @@ function addEmotion(){
 
   }
   
-  // get the p tag with id 'emotion'
-  emotion = document.getElementById('emotion');
-  
   emoArray = ['Joy', 'Sadness', 'Anger', 'Fear', 'Disgust'];
   arrayLength = emoArray.length;
   rand = getRandomInt(0, arrayLength);
   console.log(rand);
+
+  // get the p tag with id 'emotion' and use innerHTML to change the value inside the p tag
+  emotion = document.getElementById('emotion');
   emotion.innerHTML = emoArray[rand];
 
-}
+} // end of function addEmotion
 
 
+// attach the function addEmotion to the "emo-circle"  
 function addEmotionListener(){
   addEmotionCircle = document.getElementById('emo-circle');
   addEmotionCircle.addEventListener("click", addEmotion);
