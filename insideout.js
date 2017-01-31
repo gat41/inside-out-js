@@ -59,7 +59,6 @@ function addEmotion(){
   console.log(rand);
   emotion.innerHTML = emoArray[rand];
 
-  // remember to read up on appendChild (what Tristan mentioned) and guide the students accordingly
 }
 
 
